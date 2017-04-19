@@ -1,0 +1,35 @@
+<body ng-app="myApp" ng-controller="todoCtrl">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>My Todo List</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <form ng-submit="todoAdd()">
+              <input class="form-control" type="text" ng-model="todoInput" size="50" placeholder="Add new todo task">
+              <button class="btn btn-primary btn-add-new" type="submit">Add New</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div class="panel panel-primary">
+        <div class="panel-body custom-panel">
+          <div class="alert alert-success custom-alert" ng-repeat="item in todoList">
+            <input type="checkbox" ng-model="item.selected" />
+            <span ng-bind="item.todoText"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <button class="btn btn-danger" ng-click="remove()">Remove selected</button>
+      <button class="btn btn-default" ng-click="selectedAll()">Selected All</button>
+    </div>
+  </div>
+</body>
